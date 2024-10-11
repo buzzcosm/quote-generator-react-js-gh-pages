@@ -1,30 +1,46 @@
-import './QuoteCard.css'
-import React from 'react'
-import PropTypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-const QuoteCard = props => {
+const QuoteCard = (props) => {
   const { text, author } = props;
 
-  console.log(`Text length: ${text.length}, Long Quote: ${text.length > 120}, Quote: ${text}`);
+  // console.log(
+  //   `Text length: ${text.length}, Long Quote: ${
+  //     text.length > 120
+  //   }, Quote: ${text}`
+  // );
 
   return (
-    <div className='quote-container'>
-      <div className='quote-text'>
-        <FontAwesomeIcon className="quote-left-icon" icon={faQuoteLeft} />
-        <span className={text.length > 120 ? 'long-quote' : ''}>{text}</span>
+    <div className="quote-container">
+      {/* Quote */}
+      <div className="quote-text">
+        <span className="fa-quote-left">
+          <FontAwesomeIcon icon={faQuoteLeft} size="small"/>
+        </span>
+        <span className={text.length > 120 ? "long-quote" : ""}>{text}</span>
       </div>
+      {/* Author */}
       <div className="quote-author">
         <span>{author}</span>
       </div>
+      {/* Buttons */}
+      <div className="button-container">
+        <button onClick={props.tweetQuote} className="twitter-button unselectable" title="Tweet This!">
+        <FontAwesomeIcon icon={faTwitter} />
+        </button>
+        <button onClick={props.getQuote} className="unselectable">New Quote</button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 QuoteCard.propTypes = {
   text: PropTypes.string,
-  author: PropTypes.string
-}
+  author: PropTypes.string,
+  getQuote: PropTypes.func,
+  tweetQuote: PropTypes.func,
+};
 
-export default QuoteCard
+export default QuoteCard;

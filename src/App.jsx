@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import Loader from "./components/Loader";
 import QuoteCard from "./components/QuoteCard";
 
@@ -18,21 +17,29 @@ function App() {
     setHasFetched(true);
   };
 
+  const tweetQuote = () => {
+    const tweet = `${quote.text} - ${quote.author}`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${tweet}`;
+    window.open(tweetUrl, "_blank");
+  }
+
   useEffect(() => {
     getQuote();
   }, [hasFetched]);
 
   return (
-    <div className="App">
+    <>
       {loading ? (
         <Loader visible={true} />
       ) : (
-        <QuoteCard text={quote.text} author={quote.author} />
+        <QuoteCard
+          text={quote.text}
+          author={quote.author}
+          getQuote={getQuote}
+          tweetQuote={tweetQuote}
+        />
       )}
-      <div className="button-container">
-        <button className="unselectable" onClick={getQuote}>New Quote</button>
-      </div>
-    </div>
+    </>
   );
 }
 
