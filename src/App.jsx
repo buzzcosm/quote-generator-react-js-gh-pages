@@ -4,7 +4,8 @@ import Loader from "./components/Loader";
 function App() {
   return (
     <div className="App">
-      <Loader visible={true} />
+      <h1>Quote Generator</h1>
+      <Loader visible={false} />
     </div>
   );
 }
