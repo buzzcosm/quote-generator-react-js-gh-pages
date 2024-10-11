@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist node_modules",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "build": "vite build",
