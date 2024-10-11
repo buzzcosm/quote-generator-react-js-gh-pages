@@ -5,9 +5,10 @@
   "homepage": "https://github.com/buzzcosm/quote-generator-react-js-gh-pages",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
-    "deploy": "gh-pages -d build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
