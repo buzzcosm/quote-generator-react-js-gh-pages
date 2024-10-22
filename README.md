@@ -2,7 +2,8 @@
 
 ## Development
 
-Setup `vite.config.js` for GitHub Pages deployment:
+> [!IMPORTANT]  
+> Setup `vite.config.js` for GitHub Pages deployment:
 
 ```js
 export default defineConfig({
