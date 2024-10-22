@@ -1,15 +1,10 @@
 # Quote Generator
 
+The idea or inspiration comes from the ZTM Cours on Udemy  ([JavaScript Web Projects: 20 Projects to Build Your Portfolio](https://www.udemy.com/course/javascript-web-projects-to-build-your-portfolio-resume)). Plus, I wanted to try module `gh-pages` as a deployment with vite and react. Original project is coded in `vanilla js` ([Quote Generator](https://github.com/buzzcosm/quote-generator-vanilla-js-app)).
+
+![Quote Generator](./docs/img/app-screenshot.png)
+
 ## Development
-
-> [!IMPORTANT]  
-> Setup `vite.config.js` for GitHub Pages deployment:
-
-```js
-export default defineConfig({
-  base: "/<name-of-your-repository-on-github>",
-  ...
-```
 
 ### Install
 
@@ -23,14 +18,6 @@ npm install
 npm run dev
 ```
 
-### Deploy
-
-*Extended `vite.config.js` with `base`*
-
-```bash
-npm run deploy
-```
-
 ### Clean
 
 *Delete `dist` and `node_modules` folders.*
@@ -40,6 +27,25 @@ npm run deploy
 
 ```bash
 npm run clean
+```
+
+## Deployment
+
+> [!IMPORTANT]  
+> Setup for GitHub Pages for deployment:  
+> *Extended `vite.config.js` with `base`*  
+> Info [here](https://vitejs.dev/config/)
+>
+>```js
+>export default defineConfig({
+>  base: "/quote-generator-react-js-gh-pages",
+>  ...
+>})
+>```
+
+
+```bash
+npm run deploy
 ```
 
 ## Useful references
