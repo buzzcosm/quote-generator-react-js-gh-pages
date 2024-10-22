@@ -2,6 +2,14 @@
 
 ## Development
 
+Setup `vite.config.js` for GitHub Pages deployment:
+
+```js
+export default defineConfig({
+  base: "/<name-of-your-repository-on-github>",
+  ...
+```
+
 ### Install
 
 ```bash
