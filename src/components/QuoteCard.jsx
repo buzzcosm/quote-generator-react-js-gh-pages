@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-const QuoteCard = (props) => {
+export const QuoteCard = (props) => {
   const { text, author } = props;
 
   return (
@@ -36,5 +36,3 @@ QuoteCard.propTypes = {
   getQuote: PropTypes.func,
   tweetQuote: PropTypes.func,
 };
-
-export default QuoteCard;

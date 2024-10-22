@@ -1,7 +1,7 @@
 import { RotatingLines } from "react-loader-spinner";
 import PropTypes from 'prop-types';
 
-function Loader(props) {
+export function Loader(props) {
   return (
     <RotatingLines
       strokeColor="grey"
@@ -16,5 +16,3 @@ function Loader(props) {
 Loader.propTypes = {
   visible: PropTypes.bool.isRequired,
 };
-
-export default Loader;
