@@ -3,11 +3,14 @@ import QuoteCard from "./components/QuoteCard";
 import useFetch from "./hooks/useFetch";
 
 function App() {
-  const { data, isLoading, error, triggerReload } = useFetch('https://dummyjson.com/quotes/random');
+  const apiUrl = 'https://dummyjson.com/quotes/random';
+  const { data: quoteData, isLoading, error, triggerReload } = useFetch(apiUrl);
+  const { quote, author } = quoteData || {}; 
+
 
   const tweet = () => {
-    const tweet = `${data.quote} - ${data.author}`;
-    const tweetUrl = `https://twitter.com/intent/tweet?text=${tweet}`;
+    const text = `${quote} - ${author}`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${text}`;
     window.open(tweetUrl, "_blank");
   }
 
@@ -16,10 +19,10 @@ function App() {
 
   return (
     <>
-      {data && 
+      {quoteData && 
         <QuoteCard
-          text={data.quote}
-          author={data.author}
+          text={quote}
+          author={author}
           getQuote={triggerReload}
           tweetQuote={tweet}
         />
