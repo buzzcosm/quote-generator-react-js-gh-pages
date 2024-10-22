@@ -1,44 +1,33 @@
-import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import QuoteCard from "./components/QuoteCard";
+import useFetch from "./hooks/useFetch";
 
 function App() {
-  const [quote, setQuote] = useState({ text: null, author: null });
-  const [loading, setLoading] = useState(true);
-  const [hasFetched, setHasFetched] = useState(false);
+  const { data, isLoading, error, triggerReload } = useFetch('https://dummyjson.com/quotes/random');
 
-  const getQuote = async () => {
-    setLoading(true);
-    const apiUrl = "https://dummyjson.com/quotes/random";
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    setQuote({ text: data.quote, author: data.author });
-    setLoading(false);
-    setHasFetched(true);
+  const getQuote = () => {
+    triggerReload(); // Call the trigger function to fetch a new quote
   };
 
   const tweetQuote = () => {
-    const tweet = `${quote.text} - ${quote.author}`;
+    const tweet = `${data.quote} - ${data.author}`;
     const tweetUrl = `https://twitter.com/intent/tweet?text=${tweet}`;
     window.open(tweetUrl, "_blank");
   }
 
-  useEffect(() => {
-    getQuote();
-  }, [hasFetched]);
+  if (isLoading) return <Loader visible={true} />;
+  if (error) return <h2>Error: {error}</h2>;
 
   return (
     <>
-      {loading ? (
-        <Loader visible={true} />
-      ) : (
+      {data && 
         <QuoteCard
-          text={quote.text}
-          author={quote.author}
+          text={data.quote}
+          author={data.author}
           getQuote={getQuote}
           tweetQuote={tweetQuote}
         />
-      )}
+      }
     </>
   );
 }

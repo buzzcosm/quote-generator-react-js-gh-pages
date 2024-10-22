@@ -17,7 +17,7 @@ const QuoteCard = (props) => {
       {/* Quote */}
       <div className="quote-text">
         <span className="fa-quote-left">
-          <FontAwesomeIcon icon={faQuoteLeft} size="small"/>
+          <FontAwesomeIcon icon={faQuoteLeft} size="sm"/>
         </span>
         <span className={text.length > 120 ? "long-quote" : ""}>{text}</span>
       </div>
