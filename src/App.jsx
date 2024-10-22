@@ -5,11 +5,7 @@ import useFetch from "./hooks/useFetch";
 function App() {
   const { data, isLoading, error, triggerReload } = useFetch('https://dummyjson.com/quotes/random');
 
-  const getQuote = () => {
-    triggerReload(); // Call the trigger function to fetch a new quote
-  };
-
-  const tweetQuote = () => {
+  const tweet = () => {
     const tweet = `${data.quote} - ${data.author}`;
     const tweetUrl = `https://twitter.com/intent/tweet?text=${tweet}`;
     window.open(tweetUrl, "_blank");
@@ -24,8 +20,8 @@ function App() {
         <QuoteCard
           text={data.quote}
           author={data.author}
-          getQuote={getQuote}
-          tweetQuote={tweetQuote}
+          getQuote={triggerReload}
+          tweetQuote={tweet}
         />
       }
     </>
