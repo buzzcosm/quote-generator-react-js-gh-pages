@@ -1,3 +1,6 @@
+/**
+ * source: https://dev.to/adetutu/how-to-create-a-custom-usefetch-hook-in-react-4p7
+ */
 import { useState, useEffect } from "react";
 
 const useFetch = (url) => {
