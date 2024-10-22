@@ -6,12 +6,6 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 const QuoteCard = (props) => {
   const { text, author } = props;
 
-  // console.log(
-  //   `Text length: ${text.length}, Long Quote: ${
-  //     text.length > 120
-  //   }, Quote: ${text}`
-  // );
-
   return (
     <div className="quote-container">
       {/* Quote */}
